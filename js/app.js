@@ -140,12 +140,12 @@ var cardControl = function () {
 				}, delay);
 				matchingCards++;
 			} else {
-				$('.deck').find('.open').addClass('notmatch animated infinite wobble');
+				$('.deck').find('.open').addClass('nomatch animated infinite wobble');
 				setTimeout(function () {
 					$('.deck').find('.open').removeClass('animated infinite wobble');
 				}, delay / 1.5);
 				setTimeout(function () {
-					$('.deck').find('.open').removeClass('open show notmatch animated infinite wobble');
+					$('.deck').find('.open').removeClass('open show nomatch animated infinite wobble');
 				}, delay);
 			}
 			openedCards = [];
