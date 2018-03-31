@@ -1,13 +1,5 @@
 # Memory Game Project
 
-## Table of Contents
-
-* [Project purpose](#purpose)
-* [Instructions to launch the game](#launch)
-* [Instructions to play the game](#play)
-* [Game functionality](#game)
-* [Resources](#resources)
-
 ## Project purpose
 
 * Prepared to pass the Udacity Front End Nano Degree.
