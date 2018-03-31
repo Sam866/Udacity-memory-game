@@ -2,26 +2,39 @@
 
 ## Table of Contents
 
-* [Purpose](#purpose)
-* [Instructions](#instructions)
+* [Project purpose](#purpose)
+* [Instructions to launch the game](#launch)
+* [Instructions to play the game](#play)
+* [Game functionality](#game)
 * [Resources](#resources)
 
-## Purpose
+## Project purpose
 
-Prepared to pass the Udacity Front End Nano Degree.
+* Prepared to pass the Udacity Front End Nano Degree.
+* This project is build with HTML/CSS/Javascript/jQuery.
 
-Training for JS mainly as HTML and CSS are provided by Udacity team.
+## Instructions to launch the game
 
-Learning to build and use functions. Use if...else statements.
+* Clone or download the repository.
+* Open index.html file to view the project in your browser.
 
-While aware of the possibility to use native JS to manipulate the DOM, I used jQuery for speed sake to focus on other items.
+## Instructions to play the game
 
+* This is a memory matching card game where the cards are randomly distributed and hidden. When clicked, the card will show its symbol. Then you need to click another card. If they match, their symbol will remain visible.
+* There are 16 cards and 8 pairs total and the goal is to match each card's icon with its pair.
+* The game ends once all pairs are matched.
+* The number of moves influences the rating.
 
-## Instructions
+## Game functionality
 
-Play and Enjoy
+* A timer allows you to see how many seconds you spent.
+* A star based rating mechanism allows you to keep an eye on your rating.
+* A restart button will allow you to restart the game at any time.
+* Once the game finished, you will be proposed to 
 
 ## Resources
 
-*Shuffle function: http://stackoverflow.com/a/2450976
+* Shuffle function: http://stackoverflow.com/a/2450976
+* Udacity style guides: http://udacity.github.io/frontend-nanodegree-styleguide
+
 

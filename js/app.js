@@ -9,6 +9,7 @@ let	chronometer;
 let	second = 0;
 let	$timer = $('.timer');
 let	totalCard = symbols.length / 2;
+let rating = 3;
 
 //FUNCTIONS TO BE USED ACCROSS THE GAME
 
@@ -64,7 +65,7 @@ function lauchGame() {
 };
 
 // Score setting
-function setRating(movesCount) {
+/*function setRating(movesCount) {
 	let rating = 3;
 	if (movesCount > 10 && movesCount <= 16) {
 		rating = 2;
@@ -75,7 +76,24 @@ function setRating(movesCount) {
 		rating = 1;
 	} else if (movesCount > 20) {
 		$('section ul li').hide();
+		$('section ul').append('<li><i class="fa fa-star"></i></li>');
 		rating = 0;
+	}
+	return { score: rating };
+};*/
+
+function setRating(movesCount) {
+	if (movesCount === 16) {
+		
+	} else if (movesCount > 16 && movesCount <= 25) {
+		$('section ul li').hide();
+		$('section ul').append('<li><i class="fa fa-star"></i></li>');
+		$('section ul').append('<li><i class="fa fa-star"></i></li>');
+		rating = 2;
+	} else if (movesCount > 25) {
+		$('section ul li').hide();
+		$('section ul').append('<li><i class="fa fa-star"></i></li>');
+		rating = 1;
 	}
 	return { score: rating };
 };
@@ -115,8 +133,15 @@ $('.restart').on('click', function () {
 			lauchGame();
 		}
 	})
+	openedCards = [];
 });
 
+// Disable click of the open Cards
+/*function disableClick() {
+    openCards.forEach(function (card) {
+        card.off('click');
+    });
+}*/
 
 // GAME HEART
 var cardControl = function () {
@@ -124,22 +149,28 @@ var cardControl = function () {
 	// Card flip
 	$('.deck').find('.card').on('click', function () {
 
-		if ($(this).hasClass('show') || $(this).hasClass('match')) { return true; }
-
+		if ($(this).hasClass('show') || $(this).hasClass('match')) { return true ;}
+		
 		var card = $(this).context.innerHTML;
 
 		$(this).addClass('open show');
 		openedCards.push(card);
-
+		
 		// Compare with opened card
-		if (openedCards.length > 1) {
+		if ((openedCards.length % 2) === 0) {
+			$('.card').off('click');
+			
+			
 			if (card === openedCards[0]) {
+				//$('.card').off('click');
 				$('.deck').find('.open').addClass('match animated infinite rubberBand');
 				setTimeout(function () {
 					$('.deck').find('.match').removeClass('open show animated infinite rubberBand');
 				}, delay);
 				matchingCards++;
+				//
 			} else {
+				//$('.card').off('click');
 				$('.deck').find('.open').addClass('nomatch animated infinite wobble');
 				setTimeout(function () {
 					$('.deck').find('.open').removeClass('animated infinite wobble');
@@ -147,11 +178,16 @@ var cardControl = function () {
 				setTimeout(function () {
 					$('.deck').find('.open').removeClass('open show nomatch animated infinite wobble');
 				}, delay);
+				
 			}
 			openedCards = [];
+			//$('.card').click(clickedOn);
+			
 			movesCount++;
 			setRating(movesCount);
 			$('.moves').html(movesCount);
+			
+			$('.card').click(cardControl);
 		}
 
 		// End Game if match all cards
