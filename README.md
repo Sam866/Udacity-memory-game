@@ -22,7 +22,7 @@
 * A timer allows you to see how many seconds you spent.
 * A star based rating mechanism allows you to keep an eye on your rating.
 * A restart button will allow you to restart the game at any time.
-* Once the game finished, you will be proposed to 
+* Once the game finished, you will be proposed to replay through a modal.
 
 ## Resources
 
